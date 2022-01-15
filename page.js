@@ -35,3 +35,14 @@ $('li:first').css('background', "green");
 $('li:last').css('background', "green");
 */
 //$('.test li:odd:last').css('color', 'green')
+
+//DZ
+
+$('#age-table').css('background', 'pink');
+$('#age-table label').css('color', 'red');
+$('#age-table td:first').css('font-size', '40px');
+
+$('[name="search"]').css('background', 'orange');
+$('[name="search"]').css('font-size', '30px');
+$('[name="search"] input:first').css('background', 'blue');
+$('[name="search"] input:last').css('background', 'yellow');
