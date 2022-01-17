@@ -104,12 +104,12 @@ $('button').click(() => {
    $('ul li:even').hide();
 })
 */
-/* 
+/*
 const lis = $('ul li');
 const li = lis.last()
 idxLi = lis.index(li)
 console.log(idxLi) */
-/* 
+/*
 const lis = $('ul li');
 const lis_two = $('.test')
 lis.each((idx, item) => {
@@ -118,5 +118,19 @@ lis.each((idx, item) => {
          console.log(idx)
       }
    })
-}) 
+})
 */
+//DZ
+
+const text = $('.text');
+text.css('margin-bottom', '30px');
+text.css('cursor', 'pointer');
+
+let prev;
+text.click((e) => {
+   if (prev != undefined) {
+      prev.style.border = '';
+   }
+   e.target.style.border = 'solid 2px red';
+   prev = e.target;
+}); 
