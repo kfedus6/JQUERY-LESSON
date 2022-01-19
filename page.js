@@ -121,7 +121,7 @@ lis.each((idx, item) => {
 })
 */
 //DZ
-
+/* 
 const text = $('.text');
 text.css('margin-bottom', '30px');
 text.css('cursor', 'pointer');
@@ -133,4 +133,71 @@ text.click((e) => {
    }
    e.target.style.border = 'solid 2px red';
    prev = e.target;
+   alert('Words' + ':' + e.target.textContent.length)
 }); 
+ */
+
+/*
+const text = $('.text');
+text.first().hide(3000, () => {
+   console.log('hide')
+}).show(2000, () => {
+   console.log('show')
+})
+*/
+
+/*
+$('h2').hide();
+let time = 2000;
+$('.text').each((idx, item) => {
+   $('.text').eq(idx).hide(time);
+   time += 1000
+})
+
+$('h2').show(2000);
+*/
+/*
+$('*:header:not(h2)').css('color', 'red')
+$('*:not(form)').css('background', 'black')
+*//* 
+const lis = $('ul li').add('<li>7</li>')
+console.log(lis)
+$('ul').append(lis); */
+
+/*
+let res = $('li').not(function () {
+   if ($(this).text() != '3') {
+      return true
+   } else {
+      return false
+   }
+})
+
+res.hide(3000)
+*/
+
+//DZ
+let collection;
+let lastValue = 0;
+
+$('button').click(() => {
+   let inp = $('input:first').val();
+
+   if (inp < lastValue) {
+
+   }
+
+   let res = $('li').not(function () {
+      if ($(this).text() > inp) {
+         return true
+      } else {
+         return false
+      }
+   })
+
+   res.hide(2000);
+   collection += res
+   lastValue = inp
+})
+
+
