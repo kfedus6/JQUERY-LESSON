@@ -121,7 +121,7 @@ lis.each((idx, item) => {
 })
 */
 //DZ
-/* 
+/*
 const text = $('.text');
 text.css('margin-bottom', '30px');
 text.css('cursor', 'pointer');
@@ -134,7 +134,7 @@ text.click((e) => {
    e.target.style.border = 'solid 2px red';
    prev = e.target;
    alert('Words' + ':' + e.target.textContent.length)
-}); 
+});
  */
 
 /*
@@ -159,7 +159,7 @@ $('h2').show(2000);
 /*
 $('*:header:not(h2)').css('color', 'red')
 $('*:not(form)').css('background', 'black')
-*//* 
+*//*
 const lis = $('ul li').add('<li>7</li>')
 console.log(lis)
 $('ul').append(lis); */
@@ -177,6 +177,7 @@ res.hide(3000)
 */
 
 //DZ
+/*
 let collection;
 let lastValue = 0;
 
@@ -199,5 +200,21 @@ $('button').click(() => {
    collection += res
    lastValue = inp
 })
+*/
+//DZ
 
+$('.add').click(() => {
+   let text = $('#text').val();
+   let newText = $('<div></div>').text(text);
+   $('body').append(newText);
+})
+
+$('.del').click(() => {
+   $('div').each(function (index, item) {
+      if ($(this).text() == $('#del').val()) {
+         $(this).hide(2000);
+      }
+   })
+
+})
 
