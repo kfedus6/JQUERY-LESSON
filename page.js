@@ -203,18 +203,64 @@ $('button').click(() => {
 */
 //DZ
 
+/*
 $('.add').click(() => {
    let text = $('#text').val();
    let newText = $('<div></div>').text(text);
+   newText.css('display', 'none')
    $('body').append(newText);
+   newText.show(2000)
 })
 
 $('.del').click(() => {
+   console.log('1')
    $('div').each(function (index, item) {
       if ($(this).text() == $('#del').val()) {
          $(this).hide(2000);
       }
    })
+})
+*/
 
+
+
+
+//$('ul li').filter(':odd').css('color', 'red')
+/*
+$('ul li').filter((index, item) => {
+   if (index > 3) {
+      return true;
+   }
+}).css('color', 'red')
+*/
+
+//$('ul li').filter(idx => idx > 3).css('color', 'red')
+
+//$('*[href$="st"]').css('background', 'red')
+
+/*
+$('button').click(() => {
+   let text = $('input').val();
+   if ($('*[src$="jpg"]').attr('src').includes(text)) {
+      $('*[src$="jpg"]').css('border', 'solid 2px red');
+   } else if ($('*[src$="jpeg"]').attr('src').includes(text)) {
+      $('*[src$="jpeg"]').css('border', 'solid 2px red');
+   } else {
+      alert('error');
+   }
+})
+*/
+
+//$('ul li').slice(2, 4).css('color', 'red')
+//$('ul li').has('ul').css('color', 'red');
+/*
+const newLi = $('ul li').map(function (index, item) {
+   if (item.innerHTML > 2) {
+      return $(this)
+   }
 })
 
+newLi.each((index, item) => {
+   item.css('color', 'red');
+})
+*/
