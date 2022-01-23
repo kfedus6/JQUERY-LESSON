@@ -222,9 +222,6 @@ $('.del').click(() => {
 })
 */
 
-
-
-
 //$('ul li').filter(':odd').css('color', 'red')
 /*
 $('ul li').filter((index, item) => {
@@ -264,3 +261,16 @@ newLi.each((index, item) => {
    item.css('color', 'red');
 })
 */
+//DZ
+
+$('.show-board').click(() => {
+   for (let i = 0; i < 8; i++) {
+      for (let k = 0; k < 8; k++) {
+         if ((i % 2 == 0 && k % 2 == 0) || (i % 2 != 0 && k % 2 != 0)) {
+            $('#board').append('<img src="img/brown_block.jpg"></img>');
+         } else {
+            $('#board').append('<img src="img/black.jpg"></img>');
+         }
+      }
+   }
+})
