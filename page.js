@@ -263,6 +263,7 @@ newLi.each((index, item) => {
 */
 //DZ
 
+
 $('.show-board').click(() => {
    for (let i = 0; i < 8; i++) {
       for (let k = 0; k < 8; k++) {
@@ -274,3 +275,62 @@ $('.show-board').click(() => {
       }
    }
 })
+
+
+/*
+let ul = $('ul:first li').find('.menu')
+ul.css('color', 'red')
+*/
+
+/*
+let elem = $('ul.menu')[0]
+console.log(elem)
+
+let ul = $('ul:first li').find(elem)
+ul.css('color', 'red')
+*/
+
+
+//$('a').first().prop('href', "#qweqweq")
+
+/*
+links = ['#1', "#2", '#3', '#4']
+
+$('a').each(function (idx) {
+   $(this).prop('href', links[idx]);
+})
+
+let a = $('a').first()
+a.removeProp('href')
+*/
+
+/*
+$('a').first().attr('href', 'sdsdv')
+$('a').first().removeAttr('href')
+*/
+
+//$('.name').data('link', 'qweqwe')
+//$('.name').removeData('link')
+//console.log($('.name').data('link'))
+
+/* 
+$('.main').css({ "background": "grey", "cursor": "pointer", "width": "150px" })
+$('.main h1').css('margin-bottom', '20px')
+
+$('.main').animate({
+   "border-radius": "100%", "font-size": "28px",
+}, 1000)
+
+$('.main div').animate({ 'margin-left': "25px" })
+*/
+/*
+$('.main').click(() => {
+  $('.main').css('color', (idx, value) => {
+     if (value == 'rgb(255, 0, 0)') {
+        return "green"
+     } else {
+        return 'red'
+     }
+  })
+})
+*/
