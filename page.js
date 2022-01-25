@@ -263,19 +263,26 @@ newLi.each((index, item) => {
 */
 //DZ
 
-
 $('.show-board').click(() => {
    for (let i = 0; i < 8; i++) {
       for (let k = 0; k < 8; k++) {
          if ((i % 2 == 0 && k % 2 == 0) || (i % 2 != 0 && k % 2 != 0)) {
-            $('#board').append('<img src="img/brown_block.jpg"></img>');
-         } else {
             $('#board').append('<img src="img/black.jpg"></img>');
+         } else {
+            $('#board').append('<img src="img/brown_block.jpg"></img>');
          }
       }
    }
 })
 
+$('.checkers').click(() => {
+   $('#board img').each(function () {
+      if ($(this).attr('src').includes('brown') == true) {
+         console.log($(this)[0])
+      }
+   })
+
+})
 
 /*
 let ul = $('ul:first li').find('.menu')
