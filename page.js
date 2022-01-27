@@ -267,6 +267,43 @@ $('.show-board').click(() => {
    for (let i = 0; i < 8; i++) {
       for (let k = 0; k < 8; k++) {
          if ((i % 2 == 0 && k % 2 == 0) || (i % 2 != 0 && k % 2 != 0)) {
+            let oneDiv = $('<div class="block__black"></div>')
+            $('#board').append(oneDiv);
+         }
+         else {
+            let twoDiv = $('<div class="block__brown"></div>')
+            $('#board').append(twoDiv);
+         }
+      }
+   }
+
+   $('.block__black').each(function (index, item) {
+      $(this).append('<img class="block" src="img/black.jpg"></img>')
+   })
+
+
+   $('.block__brown').each(function (index, item) {
+      $(this).append('<img class="block" src="img/brown_block.jpg"></img>')
+   })
+})
+
+$('.checkers').click(() => {
+   $('.block__brown').each(function (index, item) {
+      if (index <= 12) {
+         $(this).append('<img class="shashka" src="img/shashka_brown2.jpg"></img>');
+      }
+      if (index > 19) {
+         $(this).append('<img class="shashka" src="img/shashka.png"></img>');
+      }
+   })
+
+})
+
+/*
+$('.show-board').click(() => {
+   for (let i = 0; i < 8; i++) {
+      for (let k = 0; k < 8; k++) {
+         if ((i % 2 == 0 && k % 2 == 0) || (i % 2 != 0 && k % 2 != 0)) {
             $('#board').append('<img src="img/black.jpg"></img>');
          } else {
             $('#board').append('<img src="img/brown_block.jpg"></img>');
@@ -276,14 +313,14 @@ $('.show-board').click(() => {
 })
 
 $('.checkers').click(() => {
-   $('#board img').each(function () {
+   $('#board img').each(function (index, item) {
       if ($(this).attr('src').includes('brown') == true) {
          console.log($(this)[0])
       }
    })
 
 })
-
+ */
 /*
 let ul = $('ul:first li').find('.menu')
 ul.css('color', 'red')
