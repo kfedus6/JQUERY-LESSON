@@ -262,21 +262,31 @@ newLi.each((index, item) => {
 })
 */
 //DZ
-
 $('.show-board').click(() => {
    for (let i = 0; i < 8; i++) {
       for (let k = 0; k < 8; k++) {
          if ((i % 2 == 0 && k % 2 == 0) || (i % 2 != 0 && k % 2 != 0)) {
-            let oneDiv = $('<div class="block__black"></div>')
-            $('#board').append(oneDiv);
+            $('#board').append($('<div class="block__black"></div>'));
          }
          else {
-            let twoDiv = $('<div class="block__brown"></div>')
-            $('#board').append(twoDiv);
+            $('#board').append($('<div class="block__brown"></div>'));
          }
       }
    }
+})
 
+$('.checkers').click(() => {
+   $('.block__brown').each(function (index, item) {
+      if (index < 12) {
+         $(this).append('<img class="shashka" src="img/shashka_brown2.jpg"></img>');
+      }
+      if (index > 19) {
+         $(this).append('<img class="shashka" src="img/shashka.png"></img>');
+      }
+   })
+})
+
+/*
    $('.block__black').each(function (index, item) {
       $(this).append('<img class="block" src="img/black.jpg"></img>')
    })
@@ -296,31 +306,13 @@ $('.checkers').click(() => {
          $(this).append('<img class="shashka" src="img/shashka.png"></img>');
       }
    })
-
-})
-
-/*
-$('.show-board').click(() => {
-   for (let i = 0; i < 8; i++) {
-      for (let k = 0; k < 8; k++) {
-         if ((i % 2 == 0 && k % 2 == 0) || (i % 2 != 0 && k % 2 != 0)) {
-            $('#board').append('<img src="img/black.jpg"></img>');
-         } else {
-            $('#board').append('<img src="img/brown_block.jpg"></img>');
-         }
-      }
-   }
-})
-
-$('.checkers').click(() => {
-   $('#board img').each(function (index, item) {
-      if ($(this).attr('src').includes('brown') == true) {
-         console.log($(this)[0])
-      }
-   })
-
 })
  */
+/* $('.checkers').click(() => {
+   $('.block__brown').slice(0, 13).append('<img class="shashka" src="img/shashka.png"></img>')
+})
+ */
+
 /*
 let ul = $('ul:first li').find('.menu')
 ul.css('color', 'red')
@@ -378,3 +370,57 @@ $('.main').click(() => {
   })
 })
 */
+/*
+$("div:first").addClass('test')
+$('div:first').hide(3000)
+setTimeout(() => $("div:first").removeClass('test'), 3000)
+$('div:first').show(3000)
+*/
+
+/*
+if ($('div:first').hasClass('test')) {
+   $("div:first").removeClass('test')
+} else {
+   $("div:first").addClass('test')
+}
+*/
+
+/*
+$('button:first').click(() => {
+   $("div:first").toggleClass('test')
+})
+*/
+/* 
+let id_prev_ul;
+$('.main div').click(function () {
+   $('.selected').removeClass('selected');
+   $(this).addClass('selected');
+   if ($(this).text() == 'города') {
+      $('#city').show(1500)
+      $('#city').removeClass('display__none');
+      $('#city').animate({ 'margin-left': '40px' }, 2000)
+      id_prev_ul = '#city'
+   } else if ($(this).text() == 'страны') {
+      $(id_prev_ul).animate({ 'margin-rigth': '40px' }, 1000);
+      $(id_prev_ul).hide(1000);
+      $(id_prev_ul).addClass('display__none');
+      $('#country').show(1500);
+      $('#country').removeClass('display__none');
+      $('#country').animate({ 'margin-left': '40px' }, 2000);
+      id_prev_ul = '#country';
+   } else if ($(this).text() == 'районы') {
+      $(id_prev_ul).animate({ 'margin-rigth': '40px' }, 1000);
+      $(id_prev_ul).hide(1000);
+      $(id_prev_ul).addClass('display__none');
+      $('#areas').show(1500);
+      $('#areas').removeClass('display__none');
+      $('#areas').animate({ 'margin-left': '40px' }, 2000);
+      id_prev_ul = '#areas';
+   }
+})
+*/
+
+
+
+
+

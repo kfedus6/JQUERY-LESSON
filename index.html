@@ -160,8 +160,9 @@
    <img src="https://klike.net/uploads/posts/2019-05/1556708032_1.jpg">
    <img src="img/depositphotos_2983099-stock-illustration-grunge-design.jpeg">
    -->
+
    <style>
-      #board {
+      /*  #board {
          width: 640px;
          margin-top: 10px;
       }
@@ -174,6 +175,7 @@
          padding: 0px;
       }
 
+
       .block__brown {
          position: relative;
       }
@@ -182,12 +184,38 @@
          width: 50px;
          height: 50px;
          position: absolute;
+      }*/
+      #board {
+         width: 640px;
+         height: 640px;
+         margin-top: 10px;
+      }
+
+
+      .block__brown {
+         width: 80px;
+         height: 80px;
+         float: left;
+         background: rgb(129, 79, 31);
+      }
+
+      .block__black {
+         width: 80px;
+         height: 80px;
+         float: left;
+         background: black;
+      }
+
+      .shashka {
+         width: 50px;
+         height: 50px;
       }
    </style>
 
    <button class="show-board">Нарисовать поле</button>
    <button class="checkers">Расставить шашки</button>
    <div id="board"></div>
+
    <!--
    <ul>
       <li>1</li>
@@ -222,6 +250,65 @@
       <div class="">hello</div>
       <div class="">world</div>
    </div>
+-->
+   <!--
+   <style>
+      .test {
+         background-color: red;
+         font-size: 24px;
+      }
+   </style>
+
+   <div class='test'>hello world</div>
+
+   <button>click</button>
+-->
+   <!-- 
+   <style>
+      .main {
+         display: flex;
+      }
+
+      .main div {
+         border: 2px solid black;
+         background: rgb(77, 77, 221);
+         padding: 10px;
+         color: white;
+         cursor: pointer;
+      }
+
+      .selected {
+         background: rgb(51, 51, 184) !important;
+      }
+
+      .display__none {
+         display: none;
+      }
+   </style>
+
+   <div class="main">
+      <div>города</div>
+      <div>страны</div>
+      <div>районы</div>
+   </div>
+
+   <ul id="city" class="display__none">
+      <li>львив</li>
+      <li>киев</li>
+      <li>карпаты</li>
+   </ul>
+
+   <ul id="country" class="display__none">
+      <li>Україна</li>
+      <li>Англія</li>
+      <li>Італія</li>
+   </ul>
+
+   <ul id="areas" class="display__none">
+      <li>Терпонильска</li>
+      <li>Одесська</li>
+      <li>Харкивська</li>
+   </ul>
 -->
    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"></script>
