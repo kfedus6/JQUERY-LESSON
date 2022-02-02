@@ -262,6 +262,7 @@ newLi.each((index, item) => {
 })
 */
 //DZ
+/*
 $('.show-board').click(() => {
    for (let i = 0; i < 8; i++) {
       for (let k = 0; k < 8; k++) {
@@ -285,6 +286,7 @@ $('.checkers').click(() => {
       }
    })
 })
+*/
 
 /*
    $('.block__black').each(function (index, item) {
@@ -420,7 +422,6 @@ $('.main div').click(function () {
 })
 */
 
-
-
-
-
+$('img').click(function () {
+   $('.menu').slideToggle(1000);
+})
