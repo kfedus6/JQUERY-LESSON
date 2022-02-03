@@ -351,7 +351,7 @@ $('a').first().removeAttr('href')
 //$('.name').removeData('link')
 //console.log($('.name').data('link'))
 
-/* 
+/*
 $('.main').css({ "background": "grey", "cursor": "pointer", "width": "150px" })
 $('.main h1').css('margin-bottom', '20px')
 
@@ -392,7 +392,7 @@ $('button:first').click(() => {
    $("div:first").toggleClass('test')
 })
 */
-/* 
+/*
 let id_prev_ul;
 $('.main div').click(function () {
    $('.selected').removeClass('selected');
@@ -422,6 +422,65 @@ $('.main div').click(function () {
 })
 */
 
+/*
 $('img').click(function () {
    $('.menu').slideToggle(1000);
+})
+*/
+
+/*
+const test = $('.test').html()
+$('.test').html(test + '<h1>hello</h1>')
+console.log($('.test').html());
+*/
+
+//$('.test').html((idx, html) => html + '<h1>hello</h1>')
+
+
+/*
+$('.test div:first').text((idx, text) => text + 'world');
+$('.test div:last').text((idx, text) => text + 'hello');
+console.log($('.test').text())
+*/
+
+/*
+$('input').val("Hello")
+console.log($('input').val())
+*/
+
+/* 
+$('body').prepend("<h1>Start</h1>")
+$('body').append("<h1>End</h1>")
+$("<h1>prepandTo</h1>").prependTo('ol') 
+*/
+
+$('button').click(function () {
+   let email = $('.email').val();
+   let login = $('.login').val();
+   let parol = $('.password').val();
+   if (email == '') {
+      $('.email').css('border', '2px solid red');
+   }
+   if (parol == '') {
+      $('.password').css('border', '2px solid red');
+   }
+   if (login == '') {
+      $('.login').val('user' + parseInt(Math.random() * (1000 - 1 + 1) + 1));
+   }
+   if (email == '' || parol == '') {
+      return false
+   } else {
+      $('ol').append(`<li>${email}, ${parol}, ${login} <button class="del">delete</button></li>`);
+      $('.email').css('border', '2px solid grey').val('');
+      $('.login').val('');
+      $('.password').css('border', '2px solid grey').val('');
+
+   }
+
+   $('li').each(function () {
+      $(this).click(() => {
+         $(this).css({ 'text-decoration': 'underline', 'text-decoration-color': 'red' })
+      })
+   })
+
 })
