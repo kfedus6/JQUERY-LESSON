@@ -422,11 +422,16 @@ $('.main div').click(function () {
 })
 */
 
+//DZ
 /*
 $('img').click(function () {
-   $('.menu').slideToggle(1000);
+   $('.menu').slideToggle(1000, function () {
+      if ($(this).css('display') === 'none') {
+         $(this).removeAttr('style')
+      }
+   });
 })
-*/
+ */
 
 /*
 const test = $('.test').html()
@@ -453,8 +458,9 @@ $('body').prepend("<h1>Start</h1>")
 $('body').append("<h1>End</h1>")
 $("<h1>prepandTo</h1>").prependTo('ol') 
 */
+//DZ
 
-$('button').click(function () {
+$('.send').click(function () {
    let email = $('.email').val();
    let login = $('.login').val();
    let parol = $('.password').val();
@@ -469,7 +475,7 @@ $('button').click(function () {
    }
    if (email == '' || parol == '') {
       return false
-   } else {
+   } else if ($('li').css('text-decoration') != 'underline solid rgb(255, 0, 0)') {
       $('ol').append(`<li>${email}, ${parol}, ${login} <button class="del">delete</button></li>`);
       $('.email').css('border', '2px solid grey').val('');
       $('.login').val('');
@@ -478,9 +484,23 @@ $('button').click(function () {
    }
 
    $('li').each(function () {
+
       $(this).click(() => {
          $(this).css({ 'text-decoration': 'underline', 'text-decoration-color': 'red' })
       })
+
+      if ($(this).css('text-decoration') == 'underline solid rgb(255, 0, 0)') {
+         $(this).append(`<li>${email}, ${parol}, ${login} <button class="del">delete</button></li>`);
+         $('.email').css('border', '2px solid grey').val('');
+         $('.login').val('');
+         $('.password').css('border', '2px solid grey').val('');
+      }
+   })
+
+   $('.del').click(function () {
+      $(this).parent().remove();
    })
 
 })
+
+
