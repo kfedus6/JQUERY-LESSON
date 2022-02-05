@@ -453,13 +453,15 @@ $('input').val("Hello")
 console.log($('input').val())
 */
 
-/* 
+/*
 $('body').prepend("<h1>Start</h1>")
 $('body').append("<h1>End</h1>")
-$("<h1>prepandTo</h1>").prependTo('ol') 
+$("<h1>prepandTo</h1>").prependTo('ol')
 */
 //DZ
 
+
+/*
 $('.send').click(function () {
    let email = $('.email').val();
    let login = $('.login').val();
@@ -486,7 +488,8 @@ $('.send').click(function () {
    $('li').each(function () {
 
       $(this).click(() => {
-         $(this).css({ 'text-decoration': 'underline', 'text-decoration-color': 'red' })
+         $(class).removeClass(class)
+         $(this).css({ 'text-decoration': 'underline', 'text-decoration-color': 'red' }) + class
       })
 
       if ($(this).css('text-decoration') == 'underline solid rgb(255, 0, 0)') {
@@ -502,5 +505,62 @@ $('.send').click(function () {
    })
 
 })
+*/
+
+//before,after,insertBefore,insterAfter
+
+/*
+$('#d1').before('<li>before</li>')
+$('#d2').after('<li>after</li>')
+$('<li>test</li>').insertBefore('#d1');
+*/
+
+/*
+async function hello() {
+
+   let promise = new Promise((text, reject) => {
+      setTimeout(() => text("Готово !"), 1000)
+   })
+
+   let res = await promise
+   alert(res)
+}
+hello()
+*/
+
+
+//let promise = fetch(url,[optios])
+
+/*
+const apiKey = 'e4Uct2oRTLf0COnSvSGWvWtRd4vxrvfuGZfw5zs5'
+
+let response = await fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1`)
+
+if (response.ok) {
+   let json = await response.json()
+   console.log(json)
+}
+*/
+
+const apiKey = 'e4Uct2oRTLf0COnSvSGWvWtRd4vxrvfuGZfw5zs5'
+
+fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&page=2`)
+   .then(response => response.json())
+   .then(data => {
+      console.log(data.result.search_result.ids[0])
+   })
+
+//https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=id_объявления
+//32026247
+
+let id_car = 32026247
+fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car}`)
+   .then(response => response.json())
+   .then(data => {
+      $('.block').append(`<img src="${data.photoData.seoLinkB}">`)
+      $('.block').append(`<h1>NAME: ${data.markName}</h1>`)
+      $('.block').append(`<h3>PRICE: ${data.USD}$</h3>`)
+      console.log(data)
+   })
 
 
