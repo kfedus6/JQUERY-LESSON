@@ -459,8 +459,6 @@ $('body').append("<h1>End</h1>")
 $("<h1>prepandTo</h1>").prependTo('ol')
 */
 //DZ
-
-
 /*
 $('.send').click(function () {
    let email = $('.email').val();
@@ -476,8 +474,13 @@ $('.send').click(function () {
       $('.login').val('user' + parseInt(Math.random() * (1000 - 1 + 1) + 1));
    }
    if (email == '' || parol == '') {
-      return false
-   } else if ($('li').css('text-decoration') != 'underline solid rgb(255, 0, 0)') {
+      return false;
+   } else if ($('li').hasClass('decoration') == true) {
+      $('.decoration').append(`<li>${email}, ${parol}, ${login} <button class="del">delete</button></li>`);
+      $('.email').css('border', '2px solid grey').val('');
+      $('.login').val('');
+      $('.password').css('border', '2px solid grey').val('');
+   } else {
       $('ol').append(`<li>${email}, ${parol}, ${login} <button class="del">delete</button></li>`);
       $('.email').css('border', '2px solid grey').val('');
       $('.login').val('');
@@ -486,18 +489,10 @@ $('.send').click(function () {
    }
 
    $('li').each(function () {
-
       $(this).click(() => {
-         $(class).removeClass(class)
-         $(this).css({ 'text-decoration': 'underline', 'text-decoration-color': 'red' }) + class
+         $('.decoration').removeClass('decoration')
+         $(this).addClass('decoration');
       })
-
-      if ($(this).css('text-decoration') == 'underline solid rgb(255, 0, 0)') {
-         $(this).append(`<li>${email}, ${parol}, ${login} <button class="del">delete</button></li>`);
-         $('.email').css('border', '2px solid grey').val('');
-         $('.login').val('');
-         $('.password').css('border', '2px solid grey').val('');
-      }
    })
 
    $('.del').click(function () {
@@ -506,6 +501,7 @@ $('.send').click(function () {
 
 })
 */
+
 
 //before,after,insertBefore,insterAfter
 
@@ -543,17 +539,14 @@ if (response.ok) {
 */
 
 const apiKey = 'e4Uct2oRTLf0COnSvSGWvWtRd4vxrvfuGZfw5zs5'
-
+/* 
 fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&page=2`)
    .then(response => response.json())
    .then(data => {
-      console.log(data.result.search_result.ids[0])
+      console.log(data)
    })
 
-//https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=id_объявления
-//32026247
-
-let id_car = 32026247
+let id_car = 32026247;
 fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car}`)
    .then(response => response.json())
    .then(data => {
@@ -562,5 +555,4 @@ fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car}`
       $('.block').append(`<h3>PRICE: ${data.USD}$</h3>`)
       console.log(data)
    })
-
-
+*/
