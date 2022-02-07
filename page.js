@@ -556,3 +556,47 @@ fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car}`
       console.log(data)
    })
 */
+
+/* 
+$('.next img').click(function () {
+   let index = $('.img.one').index();
+   let nextImgIndex = index + 1;
+   let nextImg = $('.img').eq(nextImgIndex);
+   $('.img.one').hide(500);
+   $('.img.one').removeClass('one');
+   if (nextImgIndex == ($('.img:last').index() + 1)) {
+      $('.img').eq(0).show(500);
+      $('.img').eq(0).addClass('one');
+   } else {
+      nextImg.show(500);
+      nextImg.addClass('one')
+   }
+})
+
+$('.prev img').click(function () {
+   let index = $('.img.one').index();
+   let prevImgIndex = index - 1;
+   let prevImg = $('.img').eq(prevImgIndex);
+   $('.img.one').hide(500);
+   $('.img.one').removeClass('one');
+
+   prevImg.show(500);
+   prevImg.addClass('one')
+})
+*/
+
+let width = 310;
+let count = 3;
+let position = 0;
+
+$('.prev img').click(function () {
+   position += width * count;
+   position = Math.min(position, 0)
+   $('.go').animate({ 'margin-left': `${position}px` }, 1000)
+})
+
+$('.next img').click(function () {
+   position -= width * count;
+   position = Math.max(position, -width * ($('.img').length - count));
+   $('.go').animate({ 'margin-left': `${position}px` }, 1000)
+})

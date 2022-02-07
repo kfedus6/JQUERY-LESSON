@@ -1,0 +1,134 @@
+/* .form {
+   position: relative;
+   top: 10px;
+}
+.marka {
+   font-size: 16px;
+   border-radius: 5px;
+}
+.search {
+   font-size: 16px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+.prev > img {
+   position: absolute;
+   left: 55px;
+   top: 190px;
+   width: 60px;
+   cursor: pointer;
+}
+.next > img {
+   position: absolute;
+   top: 190px;
+   left: 550px;
+   width: 60px;
+   cursor: pointer;
+}
+.slider {
+   width: 500px;
+   height: 400px;
+}
+.img.one {
+   display: block;
+}
+.img {
+   position: relative;
+   top: 40px;
+   left: 125px;
+   width: 400px;
+   height: 300px;
+   display: none;
+}
+.info {
+   display: inline-grid;
+}
+span {
+   font-size: 30px;
+   margin-bottom: 10px;
+}
+.buy {
+   font-size: 16px;
+   border-radius: 5px;
+   padding: 5px;
+   cursor: pointer;
+} */
+
+/* version two */
+
+.form {
+   position: relative;
+   top: 10px;
+}
+.marka {
+   font-size: 16px;
+   border-radius: 5px;
+}
+.search {
+   font-size: 16px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+.prev {
+   width: 60px;
+   height: 60px;
+   position: relative;
+   top: 160px;
+   left: -40px;
+}
+
+.prev img {
+   width: 60px;
+   cursor: pointer;
+}
+.next {
+   width: 60px;
+   height: 60px;
+   position: relative;
+   top: -200px;
+   left: 970px;
+}
+.next img {
+   width: 60px;
+   cursor: pointer;
+}
+
+.carousel {
+   position: relative;
+   width: 1000px;
+   height: 350px;
+   padding: 10px 40px;
+}
+
+.slider {
+   position: relative;
+   left: 20px;
+   width: 940px;
+   overflow: hidden;
+}
+.img {
+   width: 300px;
+   height: 250px;
+   display: block;
+   margin-left: 10px;
+}
+.go {
+   list-style-type: none;
+   display: flex;
+   height: 300px;
+   margin: 0;
+   padding: 0;
+}
+.info {
+   display: inline-grid;
+}
+span {
+   font-size: 30px;
+   margin-bottom: 10px;
+}
+.buy {
+   font-size: 16px;
+   border-radius: 5px;
+   padding: 5px;
+   cursor: pointer;
+}
