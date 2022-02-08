@@ -538,26 +538,7 @@ if (response.ok) {
 }
 */
 
-const apiKey = 'e4Uct2oRTLf0COnSvSGWvWtRd4vxrvfuGZfw5zs5'
-/* 
-fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&page=2`)
-   .then(response => response.json())
-   .then(data => {
-      console.log(data)
-   })
-
-let id_car = 32026247;
-fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car}`)
-   .then(response => response.json())
-   .then(data => {
-      $('.block').append(`<img src="${data.photoData.seoLinkB}">`)
-      $('.block').append(`<h1>NAME: ${data.markName}</h1>`)
-      $('.block').append(`<h3>PRICE: ${data.USD}$</h3>`)
-      console.log(data)
-   })
-*/
-
-/* 
+/*
 $('.next img').click(function () {
    let index = $('.img.one').index();
    let nextImgIndex = index + 1;
@@ -585,6 +566,7 @@ $('.prev img').click(function () {
 })
 */
 
+
 let width = 310;
 let count = 3;
 let position = 0;
@@ -600,3 +582,104 @@ $('.next img').click(function () {
    position = Math.max(position, -width * ($('.img').length - count));
    $('.go').animate({ 'margin-left': `${position}px` }, 1000)
 })
+
+
+/*
+fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&page=2`)
+   .then(response => response.json())
+   .then(data => {
+      console.log(data)
+   })
+ 
+let id_car = 32026247;
+fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car}`)
+   .then(response => response.json())
+   .then(data => {
+      $('.block').append(`<img src="${data.photoData.seoLinkB}">`)
+      $('.block').append(`<h1>NAME: ${data.markName}</h1>`)
+      $('.block').append(`<h3>PRICE: ${data.USD}$</h3>`)
+      console.log(data)
+   })
+*/
+
+//https://developers.ria.com/auto/categories/1/marks?api_key=YOUR_API_KEY (marks)
+//https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&category_id=1&marka_id=MARK_ID (объявления)
+//https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car} (Информация об объявлении)
+
+/*
+function get_mark(apiKey, mark) {
+   fetch(`https://developers.ria.com/auto/categories/1/marks?api_key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+         let car = data.find(obj_car => obj_car.name == mark);
+         markId = car.value;
+      })
+}
+ 
+function get_ads(apiKey, markId) {
+   fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&marka_id=${markId}`)
+      .then(response => response.json())
+      .then(data => {
+         ads = data.result.search_result.ids
+      })
+}
+ 
+const apiKey = 'e4Uct2oRTLf0COnSvSGWvWtRd4vxrvfuGZfw5zs5'
+let markId = 0;
+let ads = [];
+ 
+$('button').click(function () {
+   let mark = $('input').val();
+   get_mark(apiKey, mark);
+   setTimeout(() => {
+      setTimeout(() => {
+         get_ads(apiKey, markId)
+         console.log(ads)
+      }, 300)
+   }, 100)
+})
+*/
+
+//$('ul li:first').replaceWith('<li>15</li>')
+
+//const li = $('ul li:last').clone()
+//$('ul li:first').replaceWith(li)
+
+//$('ul li:first').remove();
+
+/*
+let li = $('ul li:first').detach()
+console.log(li)
+$('ul').append(li)
+*/
+
+//$('ul').empty()
+
+/*
+$('ul').bind('click', (e) => {
+   console.log(e.target)
+   console.log(e.currentTarget)
+   $('ul').unbind()
+})
+*/
+//DZ
+
+$('button').click(function () {
+   let lis = $('li').clone();
+   $('ul').empty();
+   lis.each(function () {
+      let li = $(this).clone();
+      $('ul').prepend(li);
+   })
+})
+
+//DZ
+
+let prev;
+$('.go').bind('click', (e) => {
+   if (prev != undefined) {
+      prev.style.border = '';
+   }
+   e.target.style.border = '2px solid red';
+   prev = e.target;
+});
