@@ -566,7 +566,7 @@ $('.prev img').click(function () {
 })
 */
 
-
+/*
 let width = 310;
 let count = 3;
 let position = 0;
@@ -583,14 +583,14 @@ $('.next img').click(function () {
    $('.go').animate({ 'margin-left': `${position}px` }, 1000)
 })
 
-
+ */
 /*
 fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&page=2`)
    .then(response => response.json())
    .then(data => {
       console.log(data)
    })
- 
+
 let id_car = 32026247;
 fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car}`)
    .then(response => response.json())
@@ -607,15 +607,31 @@ fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car}`
 //https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car} (Информация об объявлении)
 
 /*
-function get_mark(apiKey, mark) {
-   fetch(`https://developers.ria.com/auto/categories/1/marks?api_key=${apiKey}`)
-      .then(response => response.json())
-      .then(data => {
-         let car = data.find(obj_car => obj_car.name == mark);
-         markId = car.value;
-      })
+async function get_mark_ids(apiKey) {
+   const response = await fetch(`https://developers.ria.com/auto/categories/1/marks?api_key=${apiKey}`)
+   const data = await response.json()
+   return data
 }
- 
+
+async function get_mark_by_name(api_key, name) {
+   const mark_ids = await get_mark_ids(apiKey)
+   const object_car = mark_ids.find(object => object.name == name)
+   return object_car
+}
+
+async function search_ads(api_key) {
+   const car = await get_mark_by_name(apiKey, "BMW")
+   const response = await fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&marka_id=${car.value}`)
+   const data = await response.json()
+   console.log(data.result.search_result.ids)
+}
+
+const apiKey = 'e4Uct2oRTLf0COnSvSGWvWtRd4vxrvfuGZfw5zs5'
+
+search_ads()
+*/
+
+/*
 function get_ads(apiKey, markId) {
    fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&marka_id=${markId}`)
       .then(response => response.json())
@@ -623,20 +639,14 @@ function get_ads(apiKey, markId) {
          ads = data.result.search_result.ids
       })
 }
- 
-const apiKey = 'e4Uct2oRTLf0COnSvSGWvWtRd4vxrvfuGZfw5zs5'
-let markId = 0;
+
 let ads = [];
- 
-$('button').click(function () {
+
+
+$('button').click(async function () {
    let mark = $('input').val();
-   get_mark(apiKey, mark);
-   setTimeout(() => {
-      setTimeout(() => {
-         get_ads(apiKey, markId)
-         console.log(ads)
-      }, 300)
-   }, 100)
+   mark_id = await get_mark(apiKey, mark);
+   console.log(mark_id)
 })
 */
 
@@ -663,7 +673,7 @@ $('ul').bind('click', (e) => {
 })
 */
 //DZ
-
+/* 
 $('button').click(function () {
    let lis = $('li').clone();
    $('ul').empty();
@@ -683,3 +693,64 @@ $('.go').bind('click', (e) => {
    e.target.style.border = '2px solid red';
    prev = e.target;
 });
+ */
+
+/*
+$('button').bind('click', () => {
+   $('body').append('<h1>click</h1>');
+   $('button').unbind();
+})
+*/
+
+/*
+$('button').one('click', () => {
+   $('body').append('<h1>click</h1>');
+})
+*/
+/*
+$(document).bind('keydown', (e) => {
+   if (e.which == 231) {
+      $('body').append('qwe')
+   } else {
+      $('body').append('123')
+   }
+})
+*/
+/*
+$(document).bind('keypress', (e) => {
+   console.log(e.which)
+})
+*/
+
+/*
+$('div').delegate('img', 'click', function () {
+   $(this).css('border', '1px solid red')
+})
+
+$('div').undelegete('img','click');
+*/
+/*
+$('div').on('click', 'img', function () {
+   $(this).css('border', '1px solid red')
+})
+
+$('div').off('click','img');
+*/
+
+/*
+$('button').click(() => {
+   console.log($('div').css('display'))
+   if ($('div').css('display') == 'block') {
+      console.log(1)
+      $('div').slideUp()
+   } else {
+      $('div').slideDown()
+   }
+})
+*/
+
+/* 
+$('button').click(() => {
+   $('div').slideToggle(3000);
+}) 
+*/
