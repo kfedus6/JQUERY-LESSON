@@ -565,7 +565,7 @@ $('.prev img').click(function () {
    prevImg.addClass('one')
 })
 */
-
+// Carousel
 /*
 let width = 310;
 let count = 3;
@@ -582,8 +582,25 @@ $('.next img').click(function () {
    position = Math.max(position, -width * ($('.img').length - count));
    $('.go').animate({ 'margin-left': `${position}px` }, 1000)
 })
+*/
+//Carousel keydown
+let width = 310;
+let count = 3;
+let position = 0;
 
- */
+$(document).bind('keydown', (e) => {
+   if (e.which == 39) {
+      position -= width * count;
+      position = Math.max(position, -width * ($('.img').length - count));
+      $('.go').animate({ 'margin-left': `${position}px` }, 700)
+   }
+   if (e.which == 37) {
+      position += width * count;
+      position = Math.min(position, 0)
+      $('.go').animate({ 'margin-left': `${position}px` }, 700)
+   }
+})
+
 /*
 fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&page=2`)
    .then(response => response.json())
@@ -606,38 +623,53 @@ fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car}`
 //https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&category_id=1&marka_id=MARK_ID (объявления)
 //https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car} (Информация об объявлении)
 
-/*
-async function get_mark_ids(apiKey) {
-   const response = await fetch(`https://developers.ria.com/auto/categories/1/marks?api_key=${apiKey}`)
-   const data = await response.json()
-   return data
-}
+$('.search').click(() => {
+   const nameCar = $('.marka').val();
 
-async function get_mark_by_name(api_key, name) {
-   const mark_ids = await get_mark_ids(apiKey)
-   const object_car = mark_ids.find(object => object.name == name)
-   return object_car
-}
+   async function getMarkIds(apiKey) {
+      const response = await fetch(`https://developers.ria.com/auto/categories/1/marks?api_key=${apiKey}`);
+      const data = await response.json();
+      return data;
+   }
 
-async function search_ads(api_key) {
-   const car = await get_mark_by_name(apiKey, "BMW")
-   const response = await fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&marka_id=${car.value}`)
-   const data = await response.json()
-   console.log(data.result.search_result.ids)
-}
+   async function getMarkByName(api_key, name) {
+      const mark_ids = await getMarkIds(apiKey);
+      const object_car = mark_ids.find(object => object.name == name);
+      return object_car;
+   }
 
-const apiKey = 'e4Uct2oRTLf0COnSvSGWvWtRd4vxrvfuGZfw5zs5'
+   async function searchAds(api_key) {
+      const car = await getMarkByName(apiKey, nameCar);
+      const response = await fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&marka_id=${car.value}`);
+      const data = await response.json();
+      return data;
+   }
 
-search_ads()
-*/
+
+   async function searchCars() {
+      const ids = await searchAds();
+      const idsCar = ids.result.search_result.ids;
+      for (let i = 0; i < idsCar.length; i++) {
+         let cars = idsCar[i]
+         const response = await fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${cars}`)
+         const data = await response.json();
+         console.log(data)
+      }
+   }
+
+
+   const apiKey = 'e4Uct2oRTLf0COnSvSGWvWtRd4vxrvfuGZfw5zs5'
+
+   searchCars()
+})
 
 /*
 function get_ads(apiKey, markId) {
    fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&marka_id=${markId}`)
       .then(response => response.json())
-      .then(data => {
-         ads = data.result.search_result.ids
-      })
+         .then(data => {
+            ads = data.result.search_result.ids
+         })
 }
 
 let ads = [];
@@ -648,7 +680,7 @@ $('button').click(async function () {
    mark_id = await get_mark(apiKey, mark);
    console.log(mark_id)
 })
-*/
+   * /
 
 //$('ul li:first').replaceWith('<li>15</li>')
 
@@ -716,11 +748,11 @@ $(document).bind('keydown', (e) => {
    }
 })
 */
-/*
+/* 
 $(document).bind('keypress', (e) => {
-   console.log(e.which)
+   console.log(e.which);
 })
-*/
+ */
 
 /*
 $('div').delegate('img', 'click', function () {

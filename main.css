@@ -85,7 +85,7 @@ span {
    width: 60px;
    height: 60px;
    position: relative;
-   top: -200px;
+   top: -300px;
    left: 970px;
 }
 .next img {
@@ -115,15 +115,17 @@ span {
 .go {
    list-style-type: none;
    display: flex;
-   height: 300px;
+   height: 400px;
    margin: 0;
    padding: 0;
 }
-.info {
+.block__info {
    display: inline-grid;
+   position: relative;
+   left: 15px;
 }
 span {
-   font-size: 30px;
+   font-size: 20px;
    margin-bottom: 10px;
 }
 .buy {
