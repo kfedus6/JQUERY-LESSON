@@ -565,24 +565,6 @@ $('.prev img').click(function () {
    prevImg.addClass('one')
 })
 */
-// Carousel
-/*
-let width = 310;
-let count = 3;
-let position = 0;
-
-$('.prev img').click(function () {
-   position += width * count;
-   position = Math.min(position, 0)
-   $('.go').animate({ 'margin-left': `${position}px` }, 1000)
-})
-
-$('.next img').click(function () {
-   position -= width * count;
-   position = Math.max(position, -width * ($('.img').length - count));
-   $('.go').animate({ 'margin-left': `${position}px` }, 1000)
-})
-*/
 //Carousel keydown
 let width = 310;
 let count = 3;
@@ -599,6 +581,18 @@ $(document).bind('keydown', (e) => {
       position = Math.min(position, 0)
       $('.go').animate({ 'margin-left': `${position}px` }, 700)
    }
+})
+
+$('.prev img').click(function () {
+   position += width * count;
+   position = Math.min(position, 0)
+   $('.go').animate({ 'margin-left': `${position}px` }, 700)
+})
+
+$('.next img').click(function () {
+   position -= width * count;
+   position = Math.max(position, -width * ($('.img').length - count));
+   $('.go').animate({ 'margin-left': `${position}px` }, 700)
 })
 
 /*
@@ -645,7 +639,6 @@ $('.search').click(() => {
       return data;
    }
 
-
    async function searchCars() {
       const ids = await searchAds();
       const idsCar = ids.result.search_result.ids;
@@ -654,9 +647,18 @@ $('.search').click(() => {
          const response = await fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${cars}`)
          const data = await response.json();
          console.log(data)
+         $('.go').prepend(
+            `<div class="block__img">
+            <img class="img" src="${data.photoData.seoLinkB}">
+            <div class="block__info">
+            <span class="model">Модель:${data.title}</span>
+            <span class="price">Цина:${data.USD}</span>
+            <a href=" https://auto.ria.com/uk${data.linkToView}"><button class="buy">Купить</button></a>
+            </div>
+            </div>`
+         )
       }
    }
-
 
    const apiKey = 'e4Uct2oRTLf0COnSvSGWvWtRd4vxrvfuGZfw5zs5'
 
@@ -785,4 +787,10 @@ $('button').click(() => {
 $('button').click(() => {
    $('div').slideToggle(3000);
 }) 
+*/
+
+/*
+$('button').click(() => {
+   $('div').fadeOut(2000).fadeIn(1000).fadeTo(500, 0.1)
+})
 */
