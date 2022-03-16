@@ -47,9 +47,7 @@ $('[name="search"]').css('font-size', '30px');
 $('[name="search"] input:first').css('background', 'blue');
 $('[name="search"] input:last').css('background', 'yellow');
  */
-
-
-
+/*
 //$('ul li:gt(3)').css('background', 'red');
 //$('ul li:lt(3)').css('background', 'green');
 //$('ul li:gt(4):even').css('background', 'red');
@@ -59,7 +57,7 @@ $('[name="search"] input:last').css('background', 'yellow');
 //$('*:not()').css('color', 'red')
 
 //$('div:contains("")').css('color', 'red')
-
+ */
 /*
 $(document).ready(() => {
    let checkd = true;
@@ -565,7 +563,9 @@ $('.prev img').click(function () {
    prevImg.addClass('one')
 })
 */
-//Carousel keydown
+
+//Carousel keydown Api
+/*
 let width = 310;
 let count = 3;
 let position = 0;
@@ -594,7 +594,7 @@ $('.next img').click(function () {
    position = Math.max(position, -width * ($('.img').length - count));
    $('.go').animate({ 'margin-left': `${position}px` }, 700)
 })
-
+*/
 /*
 fetch(`https://developers.ria.com/auto/search?api_key=${apiKey}&category_id=1&page=2`)
    .then(response => response.json())
@@ -616,7 +616,7 @@ fetch(`https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car}`
 //https://developers.ria.com/auto/categories/1/marks?api_key=YOUR_API_KEY (marks)
 //https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&category_id=1&marka_id=MARK_ID (объявления)
 //https://developers.ria.com/auto/info?api_key=${apiKey}&auto_id=${id_car} (Информация об объявлении)
-
+/*
 $('.search').click(() => {
    const nameCar = $('.marka').val();
 
@@ -664,6 +664,7 @@ $('.search').click(() => {
 
    searchCars()
 })
+*/
 
 /*
 function get_ads(apiKey, markId) {
@@ -707,7 +708,7 @@ $('ul').bind('click', (e) => {
 })
 */
 //DZ
-/* 
+/*
 $('button').click(function () {
    let lis = $('li').clone();
    $('ul').empty();
@@ -750,7 +751,7 @@ $(document).bind('keydown', (e) => {
    }
 })
 */
-/* 
+/*
 $(document).bind('keypress', (e) => {
    console.log(e.which);
 })
@@ -783,10 +784,10 @@ $('button').click(() => {
 })
 */
 
-/* 
+/*
 $('button').click(() => {
    $('div').slideToggle(3000);
-}) 
+})
 */
 
 /*
@@ -794,3 +795,18 @@ $('button').click(() => {
    $('div').fadeOut(2000).fadeIn(1000).fadeTo(500, 0.1)
 })
 */
+//Slider 
+
+let i = 0;
+$("#container").click(function () {
+   i++;
+   if (i >= 3) {
+      i--;
+      $("#container").css({ marginLeft: "-500px" });
+      $("#container").append($("#container").children().first().clone());
+      $("#container").children().first().remove();
+   }
+   $(this).animate({ marginLeft: "-=500px" }, 800);
+
+
+});

@@ -55,7 +55,7 @@ span {
 } */
 
 /* version two */
-
+/* 
 .form {
    position: relative;
    top: 10px;
@@ -133,4 +133,39 @@ span {
    border-radius: 5px;
    padding: 5px;
    cursor: pointer;
+}
+*/
+
+/* Slider jQuery */
+#slider {
+   width: 500px;
+   height: 300px;
+   overflow: hidden;
+}
+
+#container {
+   width: 1500px;
+   height: 300px;
+   margin-left: 0;
+}
+.slide {
+   width: 500px;
+   height: 300px;
+   float: left;
+   font-size: 40px;
+}
+#sl1 {
+   background: yellow;
+}
+#sl2 {
+   background: blue;
+}
+#sl3 {
+   background: pink;
+}
+#sl4 {
+   background: orangered;
+}
+#sl5 {
+   background: greenyellow;
 }
